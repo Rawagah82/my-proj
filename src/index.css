@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=IBM+Plex+Sans+Arabic:wght@100..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #080D1C;
+  --color-brand-card: #0D1526;
+  --color-brand-gold: #C8973A;
+  --color-brand-gold-hover: #b0812e;
+  --color-brand-teal: #4A9EBA;
+  --color-brand-text: #E8E4DC;
+  
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "IBM Plex Sans", "IBM Plex Sans Arabic", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-brand-bg);
+    color: var(--color-brand-text);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+}
+
+/* Custom scrollbars for industrial blueprint style */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080D1C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0D1526;
+  border: 1px solid #C8973A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C8973A;
+}
+
+/* RTL layout visual alignments overrides */
+[dir="rtl"] .font-serif {
+  letter-spacing: normal !important;
+}
+
+/* Print-friendly style rules for clean offline document archiving */
+@media print {
+  /* Hide the main app layout entirely during printing */
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-family: "IBM Plex Sans", "IBM Plex Sans Arabic", "Playfair Display", Georgia, serif !important;
+  }
+
+  body > *:not(#print-document) {
+    display: none !important;
+  }
+
+  #print-document {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Ensure maximum legibility of text and prevent dark blocks */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Avoid page breaks inside key tables or certificates */
+  .no-break {
+    page-break-inside: avoid;
+  }
+}
+

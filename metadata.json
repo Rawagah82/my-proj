@@ -1,0 +1,6 @@
+{
+  "name": "MADAR",
+  "description": "Bilingual (Arabic/English) Industrial B2B Registration Portal with a premium dark-themed blueprint layout.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
